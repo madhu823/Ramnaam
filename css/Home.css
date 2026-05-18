@@ -1,326 +1,169 @@
 /* =========================================
-   BASE SETTINGS & VARIABLES
+   1. BASIC RESET (Yeh sabko box ke andar rakhega)
    ========================================= */
-:root {
-  --navbar_2-height: 50px;
-  --primary-color: rgb(243, 163, 87);
-  --primary-hover: rgb(233, 125, 23);
-  --text-dark: #333333;
-  --text-light: #777777;
-}
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  line-height: 1.7;
-  color: var(--text-light);
-  font-size: 14px; /* Increased slightly for better TV/Desktop reading */
+body, html {
+  width: 100%;
+  overflow-x: hidden; /* Screen se bahar jane wale content ko rokkega */
   font-family: 'Open Sans', sans-serif;
   background-color: #fff;
-  /* Fixed background property */
-  background: url("../img/n.webp") no-repeat center center fixed;
-  background-size: cover;
-  position: relative;
-  min-height: 100vh;
-  width: 100%;
-  z-index: 0;
+  /* Apna background image ka path yahan check kar lein */
+  background-image: url("../img/n.webp"); 
+  background-attachment: fixed;
+  background-size: cover; /* Background ko poori screen par stretch karega */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 /* =========================================
-   NAVIGATION BARS
+   2. TOP NAVIGATION BAR
    ========================================= */
 .navbar_1 {
   display: flex;
-  flex-wrap: wrap; /* Allows wrapping on small screens */
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  background-color: rgba(255, 245, 203, 0.9);
+  padding: 10px 20px;
   width: 100%;
-  padding: 10px 0;
-}
-
-.navbar_1::before {
-  content: "";
-  background-color: rgb(255, 245, 203);
-  position: absolute;
-  top: 0; left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -1;
-  opacity: 0.9;
 }
 
 #logo img {
-  width: 100px;
-  margin-left: 20px;
-}
-
-.nav1donationpart {
-  margin: 10px 20px;
-  text-align: center;
-}
-
-.Navbar_1_Donation_pay_button {
-  color: #fff;
-  background-color: var(--primary-color);
-  border: 1px solid var(--primary-color);
-  border-radius: 15px;
-  padding: 8px 15px;
-  outline: none;
-  cursor: pointer;
-  transition: 0.3s ease;
-}
-
-.Navbar_1_Donation_pay_button:hover {
-  background-color: var(--primary-hover);
-  border-color: var(--primary-hover);
+  width: 120px;
 }
 
 .topnav {
   display: flex;
   flex-wrap: wrap;
-  overflow: hidden;
-  box-shadow: 0px 0px 24px 15px rgba(231, 138, 57, 0.4);
-  width: 100%;
   justify-content: center;
+  width: 100%;
+  box-shadow: 0px 4px 10px rgba(231, 138, 57, 0.5);
+  background: white;
 }
 
 .topnav a, .dropdown .dropbtn {
-  background-color: white;
-  color: var(--primary-hover);
-  text-align: center;
-  padding: 14px 16px;
+  padding: 12px 15px;
+  color: rgb(233, 125, 23);
   text-decoration: none;
-  font-size: 14px;
   font-weight: bold;
+  font-size: 14px;
   border: none;
-  cursor: pointer;
+  background: none;
 }
 
 .topnav a:hover, .dropdown:hover .dropbtn {
-  background-color: var(--primary-hover);
+  background-color: rgb(233, 125, 23);
   color: white;
 }
 
-.dropdown {
-  position: relative;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 10;
-}
-
-.dropdown-content a {
-  padding: 12px 16px;
-  text-align: left;
-  display: block;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
 /* =========================================
-   MIDDLE SECTIONS & CARDS
+   3. MIDDLE BOXES (Red, Brown, Yellow)
    ========================================= */
+/* Red Box - Kawan so kaaj katin... */
 .navbar_4_MIddlePartcontent {
-  max-width: 500px; /* Made responsive */
   width: 90%;
-  height: auto;
-  min-height: 200px;
-  background-color: red;
+  max-width: 600px;
   margin: 30px auto;
+  background-color: red;
   border-radius: 12px;
-  box-shadow: 0px 0px 24px 15px rgba(249, 119, 8, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.inpartnavbar_4 {
-  font-size: 25px;
-  color: #2d2418;
-  text-align: center;
+  box-shadow: 0px 0px 15px 5px #f97708;
   padding: 20px;
-}
-
-.Home_content {
-  max-width: 900px; /* Made responsive */
-  width: 90%;
-  height: auto;
-  padding: 40px 5%;
-  margin: 0 auto 40px auto;
-  background-color: rgb(78, 37, 39);
-  border-radius: 30px;
-  box-shadow: 4px 10px 27px 17px rgba(146, 81, 43, 0.85);
-}
-
-.Home_Quote {
   text-align: center;
+  color: #fff; /* Changed to white for better contrast on red */
 }
 
-.Home_Quote h2 {
-  color: red;
-  font-size: clamp(24px, 4vw, 30px); /* Scales font automatically */
-  font-weight: bold;
-}
-
-.Home_Quote h3 {
-  color: #f1e0e0;
-  font-size: clamp(16px, 3vw, 20px);
-  font-weight: 600;
-  padding-top: 10px;
-}
-
-/* =========================================
-   DONATION & FORMS
-   ========================================= */
-.Home_Donation_Content {
-  background-color: rgba(255, 171, 0, 0.9) !important;
-  padding: 40px !important;
-  max-width: 600px; /* Made responsive */
+/* Brown Box - Ram Naam Lekhan... */
+.Home_content {
   width: 90%;
-  height: auto;
-  margin: auto;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 30px 20px;
+  background-color: rgb(78, 37, 39);
+  border-radius: 15px;
+  box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  color: #f1e0e0;
+}
+
+.Home_content h2, .Home_content h3 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+/* Yellow Box - Donation */
+.Home_Donation_Content {
+  width: 90%;
+  max-width: 600px;
+  margin: 30px auto;
+  background-color: rgba(255, 171, 0, 0.95);
+  padding: 30px;
   border-radius: 10px;
+  text-align: left;
 }
 
 .Donation_form-control {
-  display: block;
   width: 100%;
-  height: 45px;
-  padding: 6px 12px;
-  font-size: 15px;
+  padding: 10px;
   margin-bottom: 15px;
-  color: #555;
-  background-color: #fff;
-  border: 1px solid #ccc;
+  border: none;
   border-radius: 5px;
 }
 
 .Donation_pay_button {
+  background-color: #000;
   color: #fff;
-  background-color: #090909;
+  padding: 12px 25px;
   border: none;
-  padding: 12px 20px;
-  width: 100%; /* Full width on mobile */
-  max-width: 150px;
   cursor: pointer;
   border-radius: 5px;
+  font-weight: bold;
 }
 
 /* =========================================
-   MEDIA / VIDEO / IMAGES
+   4. VIDEO GRID (Screenshot me sabse kharab yehi dikh raha tha)
    ========================================= */
 .AddsampleVideo___1 {
-  background-color: #f7ec8e;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  padding: 40px 5%;
-  margin-bottom: 30px;
+  padding: 30px 5%;
+  background-color: #f7ec8e;
+  display: grid;
+  /* Ye mobile par 1 video, tablet par 2, aur pc par 3/4 videos line se dikhayega */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+  gap: 20px;
 }
 
 .AddsampleVideo___1 iframe {
   width: 100%;
-  max-width: 800px;
-  height: 450px; /* Fixed standard aspect ratio height */
-  border: none;
-}
-
-.Home_image_main_column {
-  background-color: rgb(248, 216, 74);
-  padding: 30px 5%;
-  border: 3px solid red;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.Home_image_main_row {
-  width: 100%;
-  max-width: 400px;
+  aspect-ratio: 16/9; /* Video hamesha perfect shape me rahegi */
   height: auto;
-  padding: 15px;
-  display: inline-block;
+  border: none;
+  border-radius: 8px;
 }
 
 /* =========================================
-   FOOTERS
+   5. FOOTER
    ========================================= */
-.Home_Second_footer {
-  padding: 40px 5%;
-  margin-bottom: 30px;
-  width: 100%;
-  min-height: 200px; /* Changed from fixed 400px */
-  background-color: var(--dark-bg);
-}
-
 .HomePage_Last_footer_2 {
   position: fixed;
-  left: 0;
   bottom: 0;
+  left: 0;
   width: 100%;
   background-color: #df4600;
-  padding: 10px;
   color: white;
   text-align: center;
+  padding: 10px;
   z-index: 100;
 }
 
-/* =========================================
-   MEDIA QUERIES (RESPONSIVE MAGIC)
-   ========================================= */
-
-/* For Mobile Phones */
-@media (max-width: 768px) {
-  .navbar_1 {
-    flex-direction: column;
-    text-align: center;
-  }
-  
-  #logo img {
-    margin-left: 0;
-  }
-
-  .topnav {
-    flex-direction: column;
-  }
-  
-  .topnav a, .dropdown .dropbtn {
-    width: 100%;
-    text-align: center;
-  }
-
-  .dropdown-content {
-    position: relative;
-    width: 100%;
-  }
-
-  .AddsampleVideo___1 iframe {
-    height: 250px; /* Adjust iframe height for small screens */
-  }
-
-  body {
-    padding-bottom: 50px; /* Space for the fixed footer on mobile */
-  }
-}
-
-/* For TV and Extra Large Desktops */
-@media (min-width: 1400px) {
-  body {
-    font-size: 18px; /* Larger text for far-away viewing */
-  }
-
-  .Home_content {
-    max-width: 1200px; /* Use more screen real estate on large TVs */
-  }
+/* Main wrapper jisme content overflow ho raha hoga */
+body {
+  padding-bottom: 50px;
 }
