@@ -1,5 +1,5 @@
 /* =========================================
-   1. BASIC RESET (Yeh sabko box ke andar rakhega)
+   1. GLOBAL SETTINGS (Screen Layout Fix)
    ========================================= */
 * {
   margin: 0;
@@ -9,13 +9,12 @@
 
 body, html {
   width: 100%;
-  overflow-x: hidden; /* Screen se bahar jane wale content ko rokkega */
+  overflow-x: hidden; /* Mobile par jo page side me bhag raha tha, wo ruk jayega */
   font-family: 'Open Sans', sans-serif;
   background-color: #fff;
-  /* Apna background image ka path yahan check kar lein */
-  background-image: url("../img/n.webp"); 
-  background-attachment: fixed;
-  background-size: cover; /* Background ko poori screen par stretch karega */
+  /* Background image setting */
+  background: url("../img/n.webp") no-repeat center center fixed;
+  background-size: cover; 
 }
 
 img {
@@ -24,39 +23,66 @@ img {
 }
 
 /* =========================================
-   2. TOP NAVIGATION BAR
+   2. HEADER & NAVIGATION (Logo aur Menu)
    ========================================= */
 .navbar_1 {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-between; /* Logo left me, Button right me */
   align-items: center;
-  background-color: rgba(255, 245, 203, 0.9);
-  padding: 10px 20px;
+  flex-wrap: wrap;
   width: 100%;
+  padding: 10px 5%;
+  background-color: rgba(255, 245, 203, 0.9); /* Halkaa peela background */
+  position: relative;
+  z-index: 10;
 }
 
 #logo img {
   width: 120px;
+  height: auto;
+  display: block;
 }
 
+.nav1donationpart {
+  display: flex;
+  align-items: center;
+}
+
+.Navbar_1_Donation_pay_button {
+  color: white;
+  background-color: rgb(243, 163, 87);
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.Navbar_1_Donation_pay_button:hover {
+  background-color: rgb(233, 125, 23);
+}
+
+/* Menu links wrapper */
 .topnav {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  background-color: white;
+  box-shadow: 0px 4px 10px rgba(231, 138, 57, 0.3);
   width: 100%;
-  box-shadow: 0px 4px 10px rgba(231, 138, 57, 0.5);
-  background: white;
 }
 
 .topnav a, .dropdown .dropbtn {
-  padding: 12px 15px;
   color: rgb(233, 125, 23);
+  text-align: center;
+  padding: 14px 18px;
   text-decoration: none;
-  font-weight: bold;
   font-size: 14px;
+  font-weight: bold;
+  background: transparent;
   border: none;
-  background: none;
+  cursor: pointer;
 }
 
 .topnav a:hover, .dropdown:hover .dropbtn {
@@ -64,10 +90,36 @@ img {
   color: white;
 }
 
+/* Dropdown Sub-menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 100;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-align: left;
+  display: block;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
 /* =========================================
-   3. MIDDLE BOXES (Red, Brown, Yellow)
+   3. MIDDLE BOXES (Red, Brown, Yellow Parts)
    ========================================= */
-/* Red Box - Kawan so kaaj katin... */
+
+/* Lal Box (Kawan so kaaj...) */
 .navbar_4_MIddlePartcontent {
   width: 90%;
   max-width: 600px;
@@ -77,10 +129,10 @@ img {
   box-shadow: 0px 0px 15px 5px #f97708;
   padding: 20px;
   text-align: center;
-  color: #fff; /* Changed to white for better contrast on red */
+  color: white; 
 }
 
-/* Brown Box - Ram Naam Lekhan... */
+/* Brown Box (Ram Naam Lekhan...) */
 .Home_content {
   width: 90%;
   max-width: 800px;
@@ -93,12 +145,13 @@ img {
   color: #f1e0e0;
 }
 
-.Home_content h2, .Home_content h3 {
-  color: white;
-  margin-bottom: 10px;
+.Home_Quote h2 {
+  color: #ff4d4d;
+  font-size: 26px;
+  font-weight: bold;
 }
 
-/* Yellow Box - Donation */
+/* Yellow Box (Donation Form) */
 .Home_Donation_Content {
   width: 90%;
   max-width: 600px;
@@ -106,14 +159,14 @@ img {
   background-color: rgba(255, 171, 0, 0.95);
   padding: 30px;
   border-radius: 10px;
-  text-align: left;
 }
 
 .Donation_form-control {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
+  margin-top: 5px;
   margin-bottom: 15px;
-  border: none;
+  border: 1px solid #ccc;
   border-radius: 5px;
 }
 
@@ -128,42 +181,29 @@ img {
 }
 
 /* =========================================
-   4. VIDEO GRID (Screenshot me sabse kharab yehi dikh raha tha)
+   4. VIDEO GRID (Screenshot Fix)
    ========================================= */
 .AddsampleVideo___1 {
   width: 100%;
   padding: 30px 5%;
   background-color: #f7ec8e;
   display: grid;
-  /* Ye mobile par 1 video, tablet par 2, aur pc par 3/4 videos line se dikhayega */
+  /* Computer par 3-4 video line me, mobile par auto ek ke niche ek */
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
   gap: 20px;
 }
 
 .AddsampleVideo___1 iframe {
   width: 100%;
-  aspect-ratio: 16/9; /* Video hamesha perfect shape me rahegi */
+  aspect-ratio: 16/9; /* Videos perfectly square/rectangle rahenge */
   height: auto;
   border: none;
   border-radius: 8px;
 }
 
 /* =========================================
-   5. FOOTER
+   5. FOOTERS
    ========================================= */
-.HomePage_Last_footer_2 {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background-color: #df4600;
-  color: white;
-  text-align: center;
-  padding: 10px;
-  z-index: 100;
-}
-
-/* Main wrapper jisme content overflow ho raha hoga */
-body {
-  padding-bottom: 50px;
-}
+.Home_Second_footer {
+  padding: 30px 5%;
+  width: 10
